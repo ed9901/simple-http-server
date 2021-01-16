@@ -19,10 +19,10 @@ To start the server simply run `httpserver`
 
 Here is an example using localhost/127.0.0.1 and port 8888. 
 
-The server will make 4 threads since no -N option was provided to specify how many threads to create
+The server will make 8 threads since -N option was provided to specify how many threads to create
 
 ```
-  $ ./httpserver 127.0.0.1 8888
+  $ ./httpserver -N 8 127.0.0.1 8888
   
 ```
 
