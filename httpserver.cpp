@@ -110,7 +110,7 @@ int main(int argc, char *argv[]){
 
 /****************************************************************************
 *  Main client handler function that parses the given client's HTTP-header  *
-*  and calls the corresponding request function 			    			*
+*  and calls the corresponding request function 			    *
 ****************************************************************************/
 void *handleClient(void *ptr){
 
@@ -160,6 +160,9 @@ void *handleClient(void *ptr){
 				p1 = strstr(header, "\r\n");
 				p2 = strstr(header, "\r\n\r\n");
 				sscanf(header, "%s %s %s", req, filename, version);
+				if(filename[0] == '/'){
+					memmove(filename, filename+1, strlen(filename) );
+				}
 
 				/* If req is GET, call GETrequest() function to handle a GET request*/
 				if(strcmp (req, "GET") == 0 ){
